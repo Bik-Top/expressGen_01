@@ -1,0 +1,70 @@
+$color-button: #9000dc
+$color-link: #00c0ff
+$color-row: #eee
+$color-row-hov: darken($color-row, 10%)
+$color-link-standart: #fff
+
+body
+  padding: 50px
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+
+a
+  color: $color-link
+
+// nav
+ul.nav
+  display: flex
+  align-items: center
+  list-style: none
+  padding: 0
+  margin: 0
+  li
+    a
+      display: block
+      padding: 10px 25px
+      background: $color-button
+      text-decoration: none
+      text-transform: capitalize
+      font-size: 16px
+      margin: 1px
+      color: $color-link-standart
+      &:hover
+        background: darken($color-button, 10%)
+
+.line-row
+  display: flex
+  justify-content: space-between
+  align-items: center
+  flex-flow: row wrap
+  margin-bottom: 5px
+  cursor: pointer
+
+  &:hover
+    .postId
+      background: $color-row-hov
+    .id
+      background: $color-row-hov
+    .email
+      background: $color-row-hov
+    .body
+      background: darken($color-row-hov, 15%)
+
+
+  &>div
+    padding: 5px
+    border: solid 1px darken($color-row, 25%)
+    &>b
+      margin-right: 5px
+
+  .postId
+    flex: 0 1 5%
+    background: $color-row
+  .id
+    flex: 0 1 5%
+    background: $color-row
+  .email
+    flex: 1 1 20%
+    background: $color-row
+  .body
+    flex: 1 1 100%
+    background: darken($color-row, 15%)

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= page
+  -
+  each item in title
+    .line-row
+      .postId
+        b postId:
+        span #{item.postId}
+      .email
+        b email:
+        span #{item.email}
+      .body
+        b body:
+        span #{item.body}

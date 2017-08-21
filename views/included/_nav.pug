@@ -1,0 +1,12 @@
+- var list = ["home", "users", "test"]
+ul.nav
+  each item in list
+    li
+      if item !== 'home'
+        a(href='/' + item) #{item}
+      else
+        a(href='/') home
+
+
+
+
