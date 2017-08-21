@@ -29,15 +29,19 @@ ul.nav {
   align-items: center;
   flex-flow: row wrap;
   margin-bottom: 5px;
-  cursor: pointer; }
-  .line-row:hover .postId {
-    background: #d5d5d5; }
-  .line-row:hover .id {
-    background: #d5d5d5; }
-  .line-row:hover .email {
-    background: #d5d5d5; }
-  .line-row:hover .body {
-    background: #aeaeae; }
+  cursor: pointer;
+  text-decoration: none;
+  color: #4d0076; }
+  .line-row:hover {
+    color: #9000dc; }
+    .line-row:hover .postId {
+      background: #d5d5d5; }
+    .line-row:hover .id {
+      background: #d5d5d5; }
+    .line-row:hover .email {
+      background: #d5d5d5; }
+    .line-row:hover .body {
+      background: #aeaeae; }
   .line-row > div {
     padding: 5px;
     border: solid 1px #aeaeae; }

@@ -1,10 +1,14 @@
 extends layout
 
 block content
-  h1= page
-  -
-  each item in title
-    .line-row
+  h1= title
+  a(href='/home/11')
+  each item in page
+    - var url = title + '/'+ item.id;
+    a.line-row(href= url)
+      .id
+        b id:
+        span #{item.id}
       .postId
         b postId:
         span #{item.postId}

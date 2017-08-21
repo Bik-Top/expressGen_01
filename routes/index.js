@@ -6,24 +6,15 @@ var fs = require('fs');
 router.get('/', function(req, res, next) {
   let content = fs.readFileSync("db/comments.json", "utf8");
   let users = JSON.parse(content);
-  res.render('index', { page: "home", title: users} );
-});
-
-/*router.get('/:id', function(req, res, next) {
-    var id = req.params.id; // получаем id
-    var content = fs.readFileSync("db/comments.json", "utf8");
-    var users = JSON.parse(content);
-    var user = null;
-
-    console.log('id ', id)
-    // отправляем пользователя
-    if(user){
-        res.send(user);
+    if(users){
+        res.render('index', {title:  "home",  page: users, } );
     }
     else{
-        res.status(404).send();
+        res.status(err.status || 500);
+        res.render('error');
     }
-  res.render('index_id', { page: "home", title: users} );
-});*/
+
+    next()
+});
 
 module.exports = router;

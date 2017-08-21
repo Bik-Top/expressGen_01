@@ -7,18 +7,22 @@ html
   body
     include included/_header
     hr
-    //block content
-    //block users
-    //block test
-    if page === 'home'
-      content#home 1
-        block content
-    else if page === 'users'
-      content#users 2
-        block users
-    else if page === 'test'
-      content#test 3
-        block test
+    block content
+    block users
+    block test
+
+    //if page === 'home'
+    //  content#home
+    //    h2 <1>
+    //    block content
+    //else if page === 'users'
+    //  content#users
+    //    h2 <2>
+    //    block users
+    //else if page === 'test'
+    //  content#test
+    //    h2 <3>
+    //    block test
 
     hr
     include included/_footer
