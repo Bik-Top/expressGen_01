@@ -3,7 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 
 
-router.get('/:id', function(req, res, next) {
+router.get('/home', function(req, res, next) {
     var id = req.params.id; // получаем id
     var content = fs.readFileSync("db/comments.json", "utf8");
     var users = JSON.parse(content);
