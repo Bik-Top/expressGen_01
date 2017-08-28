@@ -6,6 +6,9 @@ block content
   each item in page
     - var url = title + '/'+ item.id;
     a.line-row(href= url)
+      .name
+        b name:
+        span #{item.name}
       .id
         b id:
         span #{item.id}
