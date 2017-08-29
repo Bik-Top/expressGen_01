@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  form(name="userForm" method="post")
+    p
+      label NAME: #{name}
+        | &nbsp; &nbsp;
+        input(type='text' name='name' value='')
+    p
+      label EMAIL: #{email}
+        | &nbsp; &nbsp;
+        input(type='email' name='email' value='')
+    p
+      label BODY: #{body}
+        | &nbsp; &nbsp;
+        input(type='text' name='body' value='')
+
+    p
+      label button submit:
+      | &nbsp; &nbsp;
+      input(type="submit" value='submit')
+      | &nbsp; &nbsp;
+      input(type="button" value='insert all')
+
+
+
+
