@@ -6,18 +6,20 @@ block content
   each item in page
     - var url = title + '/'+ item.id;
     a.line-row(href= url)
-      .name
-        b name:
-        span #{item.name}
-      .id
-        b id:
-        span #{item.id}
-      .postId
-        b postId:
-        span #{item.postId}
-      .email
-        b email:
-        span #{item.email}
+      img(src='/images/ava.jpg')
+      .outward
+        .name
+          b name:
+          span #{item.name}
+        .id
+          b id:
+          span #{item.id}
+        .postId
+          b postId:
+          span #{item.postId}
+        .email
+          b email:
+          span #{item.email}
       .body
         b body:
         span #{item.body}

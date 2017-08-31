@@ -5,8 +5,8 @@ $color-row-hov: darken($color-row, 10%)
 $color-link-standart: #fff
 
 body
-  padding: 50px
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+  padding: 1em
+  font: 1em "Lucida Grande", Helvetica, Arial, sans-serif
 
 a
   color: $color-link
@@ -41,11 +41,25 @@ ul.nav
   text-decoration: none
   color: darken($color-button, 20%)
 
+  img
+    width: 100%
+    height: 100%
+    max-width: 5em
+    order: 1
+
+  .outward
+    flex: 1 1 80%
+    margin-left: 10px
+
+    order: 2
+
   &:hover
     color: $color-button
     .postId
       background: $color-row-hov
     .id
+      background: $color-row-hov
+    .name
       background: $color-row-hov
     .email
       background: $color-row-hov
@@ -65,9 +79,14 @@ ul.nav
   .id
     flex: 0 1 5%
     background: $color-row
+  .name
+    flex: 0 1 5%
+    background: $color-row
   .email
     flex: 1 1 20%
     background: $color-row
   .body
     flex: 1 1 100%
+
+    order: 3
     background: darken($color-row, 15%)
