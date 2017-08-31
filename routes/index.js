@@ -2,49 +2,52 @@ let express = require('express');
 let router = express.Router();
 let fs = require('fs');
 
-
-getJson = (req, res, next, id) => {
-    fs.readFile("db/comments.json", "utf8", function (err, data) {
-        let users = JSON.parse(data);
-        if (id >= 1) {
-            res.render('home', {title: "home " + id, user: users[id - 1]});
-        }
-        else {
-            res.render('index', {title: "home", page: users,});
-        }
-    });
-};
+// users список данных
+let users = JSON.parse(fs.readFileSync("db/comments.json", "utf8"));
+let user = null;
 
 // req.setHeader("Content-Type", "application/json");
 
-router.get('/', function (req, res, next) {
-    getJson(req, res, next)
-
+router.get('/', function (req, res) {
+    res.render('index', {title: "home", page: users,});
 });
 
-router.get('/home', function(req, res, next) {
-    const getUrl = req.originalUrl.slice(1);
+// получение одного пользователя по id
+router.get('/home/:id', function (req, res) {
 
-    res.render('form_user', { page: 'form_user', name: 'name', email: 'email', body: 'body' } );
+    var _user = users.find(function (users) {
+        return users.id === Number(req.params.id)
+    });
+
+    user = _user;
+    res.render('home', {page: 'form_user', user: _user});
 });
 
-router.post('/home', function(req, res, next) {
+// рисуем форму изменения пользователя по id
+router.get('/home', function (req, res) {
+
+     res.render('form_user', {title: "form_user", page: 'form_user', user: user});
+});
+
+// получение отправленных данных
+router.post('/home', function (req, res) {
+
+    var userId = Math.max.apply(Math,users.map(function(o){return o.id;}))+1;
     var userName = req.body.name;
     var userEmail = req.body.email;
     var userBody = req.body.body;
-    var user = {name: userName, email: userEmail, body: userBody};
 
-    res.render('home', { page: 'form_user', user: user  } );
+    var _user = {id: userId, name: userName, email: userEmail, body: userBody};
+
+    if(!req.body) return res.sendStatus(400);
+    user = _user;
+    users.push(user);
+
+    fs.writeFileSync("db/comments.json", JSON.stringify(users));
+
+    res.redirect('/');
+
 });
-
-
-
-router.get('/home/:id', function (req, res, next) {
-    let id = req.params.id; // получаем id
-    getJson(req, res, next, id);
-
-});
-
 
 
 module.exports = router;

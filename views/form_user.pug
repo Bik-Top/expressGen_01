@@ -1,28 +1,33 @@
 extends layout
 
 block content
+  - var _id = user.id;
+  - var _name = user.name;
+  - var _email = user.email;
+  - var _body = user.body;
+  h1= _id + ' ' +_name
 
   form(name="userForm" method="post")
     p
-      label NAME: #{name}
+      label NAME: #{_name}
         | &nbsp; &nbsp;
-        input(type='text' name='name' value='')
+        input(type='text' name='name' value='' placeholder= _name)
     p
-      label EMAIL: #{email}
+      label EMAIL: #{_email}
         | &nbsp; &nbsp;
-        input(type='email' name='email' value='')
+        input(type='email' name='email' value='' placeholder= _email)
     p
-      label BODY: #{body}
+      label BODY: #{_body}
         | &nbsp; &nbsp;
-        input(type='text' name='body' value='')
+        input(type='text' name='body' value='' placeholder= _body)
 
     p
       label button submit:
       | &nbsp; &nbsp;
       input(type="submit" value='submit')
       | &nbsp; &nbsp;
-      input(type="button" value='insert all')
+      input(type="button" value='insert all test' onclick='fu()')
 
-
+  // script(src='/javascripts/fu.js')
 
 

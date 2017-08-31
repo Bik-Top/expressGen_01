@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 
- var index = require('./routes/index');
-// var home = require('./routes/home');
+var index = require('./routes/index');
 var users = require('./routes/users');
 var test = require('./routes/test');
 
@@ -33,7 +32,6 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
  app.use('/', index);
-// app.use('/home', index);
 app.use('/users', users);
 app.use('/test', test);
 
@@ -47,6 +45,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 

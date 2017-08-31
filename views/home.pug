@@ -1,8 +1,10 @@
 extends layout
 
-block content
 
-  .line-row(onclick='location.href="/home"'  )
+block content
+  - var target= 'location.href="/home/' + user.id + '"';
+  h1= target
+  .line-row(onclick='location.href="/home/"', target = user.id )
     //.id
     //  b id:
     //  span #{user.id}
@@ -18,6 +20,7 @@ block content
     .body
       b body:
       span #{user.body}
+
 
 
 
