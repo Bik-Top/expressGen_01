@@ -30,8 +30,14 @@ app.use(sassMiddleware({
     watchFiles: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-
- app.use('/', index);
+app.use(function (req, res, next) {
+    res.setHeader("X-Powered-By", "WordPress");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "OPTIONS, GET, HEAD, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
+app.use('/', index);
 app.use('/users', users);
 app.use('/test', test);
 

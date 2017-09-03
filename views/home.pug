@@ -4,22 +4,25 @@ extends layout
 block content
   - var target= 'location.href="/home/' + user.id + '"';
   h1= target
-  .line-row(onclick='location.href="/home/"', target = user.id )
-    //.id
-    //  b id:
-    //  span #{user.id}
-    //.postId
-    //  b postId:
-    //  span #{user.postId}
-    .name
-      b name
-        span #{user.name}
-    .email
-      b email:
-      span #{user.email}
-    .body
-      b body:
-      span #{user.body}
+  //.line-row(onclick='location.href="/home/"', target = user.id )
+
+  .name
+    b name
+      span #{user.name}
+  .email
+    b email:
+    span #{user.email}
+  .body
+    b body:
+    span #{user.body}
+  .postId
+    a(href='/home/edit/' + user.id ) update
+
+    |
+    |
+    |
+
+    a(href='/home/delete/' + user.id ) delete
 
 
 

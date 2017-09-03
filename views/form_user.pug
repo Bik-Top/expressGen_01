@@ -5,28 +5,49 @@ block content
   - var _name = user.name;
   - var _email = user.email;
   - var _body = user.body;
+  - var status =  _status ;
+
   h1= _id + ' ' +_name
 
-  form(name="userForm" method="post")
-    p
-      label NAME: #{_name}
-        | &nbsp; &nbsp;
-        input(type='text' name='name' value='' placeholder= _name)
-    p
-      label EMAIL: #{_email}
-        | &nbsp; &nbsp;
-        input(type='email' name='email' value='' placeholder= _email)
-    p
-      label BODY: #{_body}
-        | &nbsp; &nbsp;
-        input(type='text' name='body' value='' placeholder= _body)
+  if status
+    form(name="userForm" method="post" action='/home/edit/'+_id )
+      p
+        label NAME: #{_name}
+          | &nbsp; &nbsp;
+          input(type='text' name='name' value= _name placeholder= '_name')
+      p
+        label EMAIL: #{_email}
+          | &nbsp; &nbsp;
+          input(type='email' name='email' value= _email placeholder= '_email')
+      p
+        label BODY: #{_body}
+          | &nbsp; &nbsp;
+          input(type='text' name='body' value= _body placeholder= '_body')
 
-    p
-      label button submit:
-      | &nbsp; &nbsp;
-      input(type="submit" value='submit')
-      | &nbsp; &nbsp;
-      input(type="button" value='insert all test' onclick='fu()')
+      p
+        label button submit:
+        | &nbsp; &nbsp;
+        input(type="submit" value='submit')
+
+  else
+    form(name="userForm" method="post" action='/home/delete')
+      p
+        label NAME: #{_name}
+          | &nbsp; &nbsp;
+          input(type='text' name='name' value='' placeholder= _name)
+      p
+        label EMAIL: #{_email}
+          | &nbsp; &nbsp;
+          input(type='email' name='email' value='' placeholder= _email)
+      p
+        label BODY: #{_body}
+          | &nbsp; &nbsp;
+          input(type='text' name='body' value='' placeholder= _body)
+
+      p
+        label button submit:
+        | &nbsp; &nbsp;
+        input(type="submit" value='submit')
 
   // script(src='/javascripts/fu.js')
 
