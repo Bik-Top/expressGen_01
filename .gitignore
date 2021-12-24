@@ -30,4 +30,5 @@ node_modules
 npm-debug.log
 
 .idea/
+.idea
 /db/comments.json
